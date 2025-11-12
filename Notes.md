@@ -197,3 +197,75 @@ Open your browser and visit `http://localhost:3000` or use a tool like:
 **To exit the running section of the terminal**
 
 - Use Ctrl + C
+
+## Little test
+
+if you add this middleware on your application 
+
+```jsx
+// middleware to log request body
+app.use(async (req, res, next) => {
+	const date = new Date().toISOString()
+	console.log(`[${date}] ${req.method} ${req.url}`)
+
+	
+	const response = await fetch("https://jsonplaceholder.typicode.com/users/1")
+	const data = await response.json()
+	req.data = data
+	console.log(data)
+	
+	next()
+})
+```
+
+and then add this function right after:
+
+```jsx
+app.get("/", (req, res) => {
+	const data = req.data
+	res.json({ users, data })
+})
+```
+
+you will be sending the hard-coded data from your application
+
+
+```jsx
+const users = [
+	{ id: 1, name: "Alice" },
+	{ id: 2, name: "Bob" },
+	{ id: 3, name: "Charlie" },
+	{ id: 4, name: "Dave" },
+]
+
+```
+
+PLUS
+
+the data that you just brought using the fetch function ! In this case is:
+
+```jsx
+{
+	"id": 1,
+	"name": "Leanne Graham",
+	"username": "Bret",
+	"email": "Sincere@april.biz",
+	"address": {
+		"street": "Kulas Light",
+		"suite": "Apt. 556",
+		"city": "Gwenborough",
+		"zipcode": "92998-3874",
+		"geo": {
+				"lat": "-37.3159",
+				"lng": "81.1496"
+				}
+		},
+		"phone": "1-770-736-8031 x56442",
+		"website": "hildegard.org",
+		"company": {
+			"name": "Romaguera-Crona",
+			"catchPhrase": "Multi-layered client-server neural-net",
+			"bs": "harness real-time e-markets"
+			}
+}
+```
