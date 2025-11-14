@@ -1,3 +1,5 @@
+// using json file provided in the data folder
+
 import fs from "fs";
 import path from "path";
 

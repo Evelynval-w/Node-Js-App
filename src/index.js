@@ -29,10 +29,12 @@ app.get('/', (req, res) => {
 		environment: config.nodeEnv,
 		endpoints: {
 			users: "/users",
-            recipes: "/recipes"
+            recipes: "/recipes",
+            randomRecipe: "/recipes/random",
+            searchRecipes: "/recipes?search=pasta"
 		}
-	})
-})
+	});
+});
 
 // Health check (useful for Render)
 app.get('/health', (req, res) => {
