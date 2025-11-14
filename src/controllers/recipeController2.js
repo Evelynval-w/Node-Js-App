@@ -1,5 +1,4 @@
-// with API
-import * as recipeService from "../services/recipeMealDBService.js"; // ← Changed import
+import * as recipeService from "../services/recipeMealDBService.js";
 
 export const getRecipes = async (req, res) => {
     try {
@@ -32,9 +31,13 @@ export const getRecipe = async (req, res) => {
     }
 };
 
+// ADD THIS FUNCTION IF IT'S MISSING
 export const getRandomRecipe = async (req, res) => {
     try {
         const recipe = await recipeService.getRandomRecipe();
+        if (!recipe) {
+            return res.status(404).json({ message: "Could not fetch random recipe" });
+        }
         res.json(recipe);
     } catch (error) {
         res.status(500).json({ message: error.message });

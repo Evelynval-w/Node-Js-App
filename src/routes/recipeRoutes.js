@@ -2,16 +2,16 @@ import express from "express";
 import {
   getRecipes,
   getRecipe,
+  getRandomRecipe,  // ← ADD THIS IMPORT
   createRecipe,
   updateRecipe,
   deleteRecipe
 } from "../controllers/recipeController2.js";
 
-//from "../controllers/recipeController.js";
-
 const router = express.Router();
 
 router.get("/", getRecipes);
+router.get("/random", getRandomRecipe);   // ← ADD THIS LINE (BEFORE /:id)
 router.get("/:id", getRecipe);
 router.post("/", createRecipe);
 router.put("/:id", updateRecipe);
