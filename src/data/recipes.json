@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Chocolate Cake",
+    "cookingTime": 45,
+    "ingredients": ["flour", "eggs", "sugar", "chocolate"],
+    "difficulty": "medium"
+  },
+  {
+    "id": 2,
+    "name": "Spaghetti Carbonara",
+    "cookingTime": 25,
+    "ingredients": ["spaghetti", "eggs", "cheese", "bacon"],
+    "difficulty": "easy"
+  }
+]
