@@ -19,7 +19,7 @@ on:
           - "true"
           - "false"
 
-job:
+jobs:
   renovate:
     name: Run Renovate
     runs-on: ubuntu-latest
