@@ -1,0 +1,38 @@
+name: Renovate
+
+on:
+  workflow_dispatch:
+    inputs:
+      log_level:
+        default: "info"
+        type: choice
+        options:
+          - debug
+          - info
+          - warn
+      ignore_schedule:
+        description: "Ignore schedule (open PRs immediatly)"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+job:
+  renovate:
+    name: Run Renovate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Rune Renovate
+        uses: renovatebot/github-action@v40
+        with:
+          configurationFile: renovate.json
+          token: ${{ secrets.RENOVATE_TOKEN }}
+        env:
+          LOG_LEVEL: ${{ inputs.log_level }}
+          RENOVATE_IGNORE_SCHEDULE: ${{ inputs.ignore_schedule }}
