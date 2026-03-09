@@ -4,7 +4,7 @@
 
 This project is a secure REST API built with Node.js and Express for managing student records. It implements JWT (JSON Web Token) authentication to protect endpoints and ensure that only authorized users can access and manipulate student data. The API follows RESTful principles, providing a clean and intuitive interface for CRUD (Create, Read, Update, Delete) operations on student resources.
 
-## Requirements
+# Requirements
 
 Runtime & Core Dependencies:
 
